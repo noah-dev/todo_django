@@ -6,13 +6,13 @@ User = get_user_model()
 # Use django built in form code for user authentication
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField()
+    user = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self, *args, **kwargs):
-        username = self.cleaned_data.get("username")
+        user = self.cleaned_data.get("username")
         password = self.cleaned_data.get("password")
-        user = authenticate(username=username, password=password)
+        user = authenticate(user=user, password=password)
         if not user:
             raise forms.ValidationError("Either User Does Not Exist or Password Invalid")
         if not user.is_active:

@@ -20,12 +20,10 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# See if environment will enable DEBUG. Otherwise will remain False
-DEBUG_STR = os.environ.get('DJANGO_DEBUG')
-if DEBUG_STR == "True":
-    DEBUG = True
+# See if environment will enable DEBUG. Otherwise it will be false
+DEBUG = os.environ.get('DJANGO_DEBUG', "True")
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
 # If it is unable to retrive a secret key and DEBUG is enabled, then fall
 # back to a local file. Be aware that this file is pushed to github and is
 # public. Can be changed if needed.

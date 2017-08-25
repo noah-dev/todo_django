@@ -1,10 +1,10 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Item(models.Model):
     '''Represents an item on a todo list, such as user, desc, etc.
     '''
-    username = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title_text = models.CharField(max_length=200)
     desc_text = models.TextField()
     impact_text = models.TextField()

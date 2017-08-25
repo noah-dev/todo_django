@@ -15,19 +15,20 @@ from django.contrib import messages
 from datetime import date, datetime, time
 import pytz
 
+from django.contrib.auth.models import User
 
 @login_required(login_url='/login/')
 def index(request):
     '''index will populate the page with items from the database'''
     # I believe this is secure: https://stackoverflow.com/questions/15819937/django-auth-can-request-user-be-exploited-and-point-to-other-user
-    username = request.user
+    user = request.user
 
     # Split the items based on whether or not the due date has passed
     todo_items = Item.objects\
-        .filter(username=username, due_date__gte=timezone.now())\
+        .filter(user=user, due_date__gte=timezone.now())\
         .order_by('due_date')
     past_items = Item.objects\
-        .filter(username=username, due_date__lt=timezone.now())\
+        .filter(user=user, due_date__lt=timezone.now())\
         .order_by('due_date')
 
     return render(request, 'todo/index.html',
@@ -44,7 +45,7 @@ def show_item(request):
         print("Error at todo.view.show_item")
 
     # To be honest, I don't know if this is necessary. But it makes me feel better
-    if item_select.username != str(request.user):
+    if item_select.user != request.user:
         return redirect('/todo/')
 
     # To format the data correctly, model_to_dict is used
@@ -98,7 +99,7 @@ def add_item(request):
     if 'add_button' in request.POST:
         try:
             # Attempt to fill out a new item and save it to the database
-            username = str(request.user)
+            user = request.user
             title_text = request.POST['title']
             desc_text = request.POST['desc']
             impact_text = request.POST['impact']
@@ -108,7 +109,7 @@ def add_item(request):
             priority = -1
             add_date = timezone.now()
 
-            new_item = Item(username=username,
+            new_item = Item(user=user,
                             title_text=title_text,
                             desc_text=desc_text,
                             impact_text=impact_text,
@@ -132,12 +133,10 @@ def delete_item(request):
     '''Delete an item upon ajax request'''
     try:
         item_id = request.GET['id']
-        item = get_object_or_404(Item, pk=item_id)
+        item = get_object_or_404(Item, pk=item_id, user=request.user)
     except:
         print("Error at todo.view.delete_item")
     # To be honest, I don't know if this is necessary. But it makes me feel better
-    if item.username != str(request.user):
-        return redirect('/todo/')
     item.delete()
     # Return the JsonResponse - the returned dict is not used for anything
     return JsonResponse({'tmp': 'success'}, safe=False)
