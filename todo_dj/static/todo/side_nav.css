@@ -1,0 +1,59 @@
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color .5s;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 0px;
+    transition: all 0.4s ease 0s;
+}
+
+#nav {
+  background-color: #ca0000;
+  padding: 0px;
+}
+.nav_expand{
+  margin: 0 auto;
+  width: 80%;
+  padding: 10%;
+  transition: all 0.4s ease 0s;
+}
+
+.nav_icon{
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  margin: 0 auto;
+  width: 80%;
+  padding: 5%;
+}
+
+.nav_expand:hover {
+  filter: opacity(50%);
+}
+
+#github{
+  padding: 10%;
+}
+
+ #nav_toggle, #logout, #add, #logo, #github{
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+#add:hover, #logout:hover, #logo:hover, #github:hover{
+  filter: opacity(50%);
+}
+
+
+.mirror_img {
+    -moz-transform: scale(-1, -1);
+    -o-transform: scale(-1, -1);
+    -webkit-transform: scale(-1, -1);
+    transform: scale(-1, -1);
+}

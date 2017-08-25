@@ -4,4 +4,7 @@ from django.contrib import admin
 
 from .models import Item
 
-admin.site.register(Item)
+class ItemAdmin(admin.ModelAdmin):
+    readonly_fields = ('add_date',)
+
+admin.site.register(Item, ItemAdmin)

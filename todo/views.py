@@ -40,21 +40,21 @@ def show_item(request):
     '''Return a specific item using passed in primary key via ajax request'''
     try:
         item_id = request.GET['id']
-        item_select = get_object_or_404(Item, pk=item_id)
+        item_select = get_object_or_404(Item, pk=item_id, user=request.user)
     except:
         print("Error at todo.view.show_item")
-
-    # To be honest, I don't know if this is necessary. But it makes me feel better
-    if item_select.user != request.user:
-        return redirect('/todo/')
-
-    # To format the data correctly, model_to_dict is used
-    pre_data = model_to_dict(item_select)
+    
+    # Use custom method to turn into python dict
+    pre_data = item_select.to_dict()
     # Convert the date fields from datetime objects to strings
     tz = pytz.timezone('America/Chicago')
+    
     pre_data['add_date'] = str(pre_data['add_date'].astimezone(tz))
     pre_data['due_date'] = str(pre_data['due_date'].astimezone(tz))
     pre_data['start_date'] = str(pre_data['start_date'].astimezone(tz))
+
+    # User field is not naively serializable and is unneeded. Throw it out
+    pre_data.pop('user', None)
 
     # Dump data and return it
     data = json.dumps(pre_data)
@@ -107,7 +107,6 @@ def add_item(request):
             due_date = convert_date(request.POST['due'])
             complete = False
             priority = -1
-            add_date = timezone.now()
 
             new_item = Item(user=user,
                             title_text=title_text,
@@ -116,8 +115,7 @@ def add_item(request):
                             start_date=start_date,
                             due_date=due_date,
                             priority=priority,
-                            complete=complete,
-                            add_date=add_date)
+                            complete=complete)
             new_item.save()
 
         except:
@@ -129,10 +127,9 @@ def add_item(request):
     return HttpResponseRedirect(reverse('todo:index'))
 
 @login_required(login_url='/login/')
-def delete_item(request):
+def delete_item(request, item_id):
     '''Delete an item upon ajax request'''
     try:
-        item_id = request.GET['id']
         item = get_object_or_404(Item, pk=item_id, user=request.user)
     except:
         print("Error at todo.view.delete_item")

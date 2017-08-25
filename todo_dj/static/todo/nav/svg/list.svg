@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   style="shape-rendering:optimizeSpeed;"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg11971"
+   inkscape:export-filename="C:\apps\active\todo_dj\todo\static\todo\nav\expand_arrow.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   sodipodi:docname="list.svg"
+   inkscape:version="0.92.1 r15371">
+  <defs
+     id="defs11965" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.28"
+     inkscape:cx="1372.5281"
+     inkscape:cy="1489.033"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:object-paths="true"
+     inkscape:snap-nodes="true"
+     inkscape:lockguides="false"
+     inkscape:pagecheckerboard="true"
+     borderlayer="false"
+     showborder="false" />
+  <metadata
+     id="metadata11968">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       transform="matrix(6.573162,0,0,6.573162,68.752694,-1239.769)"
+       id="g10592"
+       inkscape:export-filename="C:\apps\active\django\todo_dj\todo\static\todo\nav\list.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180">
+      <rect
+         style="opacity:1;fill:#ca0000;fill-opacity:1;stroke:none;stroke-width:1.06358111;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect10572"
+         width="10.304528"
+         height="10.304528"
+         x="41.797825"
+         y="169.54176"
+         ry="1.3502485" />
+      <g
+         id="g10578"
+         transform="matrix(0.71656813,0,0,0.71656813,-35.702911,-10.970413)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path10574"
+           d="m 109.74418,253.44022 c -0.18009,0 -0.32505,0.14496 -0.32505,0.32504 v 1.8309 c 0,0.18009 0.14496,0.32505 0.32505,0.32505 h 1.82779 c 0.18009,0 0.32505,-0.14496 0.32505,-0.32505 v -1.8309 c 0,-0.18008 -0.14496,-0.32504 -0.32505,-0.32504 z m 0.29559,0.40153 h 1.2361 c 0.12181,0 0.22014,0.0983 0.22014,0.22014 v 1.23816 c 0,0.12182 -0.0983,0.21963 -0.22014,0.21963 h -1.2361 c -0.12182,0 -0.22014,-0.0978 -0.22014,-0.21963 v -1.23816 c 0,-0.12182 0.0983,-0.22015 0.22014,-0.22014 z"
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.25590751;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.3807956;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10576"
+           width="8.8081102"
+           height="1.5453115"
+           x="112.464"
+           y="253.90805"
+           ry="0.20248909" />
+      </g>
+      <g
+         id="g10584"
+         transform="matrix(0.71656813,0,0,0.71656813,-35.702911,-7.861196)">
+        <path
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.25590751;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 109.74418,253.44022 c -0.18009,0 -0.32505,0.14496 -0.32505,0.32504 v 1.8309 c 0,0.18009 0.14496,0.32505 0.32505,0.32505 h 1.82779 c 0.18009,0 0.32505,-0.14496 0.32505,-0.32505 v -1.8309 c 0,-0.18008 -0.14496,-0.32504 -0.32505,-0.32504 z m 0.29559,0.40153 h 1.2361 c 0.12181,0 0.22014,0.0983 0.22014,0.22014 v 1.23816 c 0,0.12182 -0.0983,0.21963 -0.22014,0.21963 h -1.2361 c -0.12182,0 -0.22014,-0.0978 -0.22014,-0.21963 v -1.23816 c 0,-0.12182 0.0983,-0.22015 0.22014,-0.22014 z"
+           id="path10580"
+           inkscape:connector-curvature="0" />
+        <rect
+           ry="0.20248909"
+           y="253.90805"
+           x="112.464"
+           height="1.5453115"
+           width="8.8081102"
+           id="rect10582"
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.3807956;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <g
+         id="g10590"
+         transform="matrix(0.71656813,0,0,0.71656813,-35.702911,-4.751982)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path10586"
+           d="m 109.74418,253.44022 c -0.18009,0 -0.32505,0.14496 -0.32505,0.32504 v 1.8309 c 0,0.18009 0.14496,0.32505 0.32505,0.32505 h 1.82779 c 0.18009,0 0.32505,-0.14496 0.32505,-0.32505 v -1.8309 c 0,-0.18008 -0.14496,-0.32504 -0.32505,-0.32504 z m 0.29559,0.40153 h 1.2361 c 0.12181,0 0.22014,0.0983 0.22014,0.22014 v 1.23816 c 0,0.12182 -0.0983,0.21963 -0.22014,0.21963 h -1.2361 c -0.12182,0 -0.22014,-0.0978 -0.22014,-0.21963 v -1.23816 c 0,-0.12182 0.0983,-0.22015 0.22014,-0.22014 z"
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.25590751;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <rect
+           style="opacity:1;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.3807956;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect10588"
+           width="8.8081102"
+           height="1.5453115"
+           x="112.464"
+           y="253.90805"
+           ry="0.20248909" />
+      </g>
+    </g>
+  </g>
+</svg>
