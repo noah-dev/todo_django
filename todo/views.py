@@ -99,21 +99,23 @@ def add_item(request):
         return end_day
 
     if 'add_button' in request.POST:
-        try:
+        # try:
             # Attempt to fill out a new item and save it to the database
             form = ItemForm(request.POST)
-            print(form)
             if form.is_valid:
+                form.due_date = timezone.now()
+                form.start_date = timezone.now()
                 form.user = request.user
                 form.complete = False
                 form.priority = -1
+                print(form.fields)
                 form.save()
 
-        except:
+        # except:
             # If it didn't work, assume the provided data was invalid and
             # request user try again.
-            messages.warning(request, "Input Not Valid - Please Try Again")
-            HttpResponseRedirect(request.path)
+            # messages.warning(request, "Input Not Valid - Please Try Again")
+            # HttpResponseRedirect(request.path)
     # Used instead of redirect so that back button goes back to todo page
     return HttpResponseRedirect(reverse('todo:index'))
 
