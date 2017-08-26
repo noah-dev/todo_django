@@ -17,6 +17,8 @@ import pytz
 
 from django.contrib.auth.models import User
 
+from .forms import ItemForm
+
 @login_required(login_url='/login/')
 def index(request):
     '''index will populate the page with items from the database'''
@@ -99,24 +101,13 @@ def add_item(request):
     if 'add_button' in request.POST:
         try:
             # Attempt to fill out a new item and save it to the database
-            user = request.user
-            title_text = request.POST['title']
-            desc_text = request.POST['desc']
-            impact_text = request.POST['impact']
-            start_date = convert_date(request.POST['start'])
-            due_date = convert_date(request.POST['due'])
-            complete = False
-            priority = -1
-
-            new_item = Item(user=user,
-                            title_text=title_text,
-                            desc_text=desc_text,
-                            impact_text=impact_text,
-                            start_date=start_date,
-                            due_date=due_date,
-                            priority=priority,
-                            complete=complete)
-            new_item.save()
+            form = ItemForm(request.POST)
+            print(form)
+            if form.is_valid:
+                form.user = request.user
+                form.complete = False
+                form.priority = -1
+                form.save()
 
         except:
             # If it didn't work, assume the provided data was invalid and
