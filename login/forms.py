@@ -10,9 +10,9 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
 
     def clean(self, *args, **kwargs):
-        user = self.cleaned_data.get("username")
+        user = self.cleaned_data.get("user")
         password = self.cleaned_data.get("password")
-        user = authenticate(user=user, password=password)
+        user = authenticate(username=user, password=password)
         if not user:
             raise forms.ValidationError("Either User Does Not Exist or Password Invalid")
         if not user.is_active:
