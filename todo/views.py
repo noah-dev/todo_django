@@ -130,3 +130,20 @@ def delete_item(request, item_id):
     item.delete()
     # Return the JsonResponse - the returned dict is not used for anything
     return JsonResponse({'tmp': 'success'}, safe=False)
+
+@login_required(login_url='/login/')
+def test_add(request):
+    # If the form is valid, attempt to authenticate and login the user
+    form = ItemForm(request.POST)
+    if form.is_valid():
+        item = form.cleaned_data
+        item['due_date'] = timezone.now()
+        form.start_date = timezone.now()
+        form.user = request.user
+        form.complete = False
+        form.priority = -1
+        print(form.cleaned_data)
+        form.save()
+
+    # If user is not logged in, show the login page. 
+    return render(request, "todo/form.html", {"form":form})

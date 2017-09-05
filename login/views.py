@@ -16,7 +16,6 @@ def login_view(request):
 
     # If the form is valid, attempt to authenticate and login the user
     if form.is_valid():
-        print(form.cleaned_data)
         username = form.cleaned_data.get("user")
         password = form.cleaned_data.get("password")
         user = authenticate(username=username, password=password)
