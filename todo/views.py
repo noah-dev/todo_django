@@ -12,10 +12,12 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib import messages
-from datetime import date, datetime, time
+from datetime import date, datetime, time, timedelta
 import pytz
 
 from django.contrib.auth.models import User
+
+from .forms import ItemForm
 
 @login_required(login_url='/login/')
 def index(request):
@@ -86,44 +88,28 @@ def complete_item(request):
 @login_required(login_url='/login/')
 def add_item(request):
     '''Add a new item from a form via POST method'''
-    def convert_date(date_string):
-        '''Helper function to convert dates as strings to datetime objects'''
-        day = datetime.strptime(date_string, '%m/%d/%Y')
-        # If date_string is 8/20/2017, then day will be datetime.datetime(2017, 6, 20, 0, 0)
-        # But the due date should not be at the start of the day - it should be the end
-        # So set it to datetime.datetime(2017, 6, 20, 23, 59, 59, 999999)
-        tz = pytz.timezone('America/Chicago')
-        end_day = tz.localize(day).replace(hour=23, minute=59, second=59, microsecond=999999)
-        return end_day
+    form = ItemForm(request.POST)
+    if form.is_valid():
+        item = form.cleaned_data
+        user = request.user
+        complete = False
+        priority = -1
 
-    if 'add_button' in request.POST:
-        try:
-            # Attempt to fill out a new item and save it to the database
-            user = request.user
-            title_text = request.POST['title']
-            desc_text = request.POST['desc']
-            impact_text = request.POST['impact']
-            start_date = convert_date(request.POST['start'])
-            due_date = convert_date(request.POST['due'])
-            complete = False
-            priority = -1
-
-            new_item = Item(user=user,
-                            title_text=title_text,
-                            desc_text=desc_text,
-                            impact_text=impact_text,
-                            start_date=start_date,
-                            due_date=due_date,
-                            priority=priority,
-                            complete=complete)
-            new_item.save()
-
-        except:
-            # If it didn't work, assume the provided data was invalid and
-            # request user try again.
-            messages.warning(request, "Input Not Valid - Please Try Again")
-            HttpResponseRedirect(request.path)
-    # Used instead of redirect so that back button goes back to todo page
+        new_item = Item(user=user,
+                        title_text=item['title_text'],
+                        desc_text=item['desc_text'],
+                        impact_text=item['impact_text'],
+                        start_date=item['start_date'],
+                        due_date=item['due_date'] + timedelta(days=0, microseconds=999999, seconds=59, minutes=59, hours=23),
+                        priority=priority,
+                        complete=complete)
+        new_item.save()
+    else:
+        # If it didn't work, assume the provided data was invalid and
+        # request user try again.
+        messages.warning(request, "Input Not Valid - Please Try Again")
+        HttpResponseRedirect(request.path)
+    
     return HttpResponseRedirect(reverse('todo:index'))
 
 @login_required(login_url='/login/')

@@ -1,0 +1,18 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+        <h1>Test Form</h1>
+        <p>Enter in new item</p>
+            <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type = "submit" class="btn btn-success btn-lg" id="login" name = "login">Submit!</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -99,30 +99,30 @@
           {% csrf_token %}
           <div class="form-group">
             <b>Title:</b>
-            <input type="text" class="form-control form-control-lg" name = "title" 
+            <input type="text" class="form-control form-control-lg" name = "title_text" 
               placeholder = "Title of this task.">
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <b>Description:</b>
-              <textarea class="form-control form-control-lg" name = "desc" rows="3"
+              <textarea class="form-control form-control-lg" name = "desc_text" rows="3"
                 placeholder = "What nature of this task?"></textarea>
             </div>
 
             <div class="form-group col-md-6">
               <b>Impact:</b>
-              <textarea class="form-control form-control-lg" name = "impact"  rows="3"
+              <textarea class="form-control form-control-lg" name = "impact_text"  rows="3"
                 placeholder = "What is the impact of completion/failure?"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-6">
               <b>Start Date:</b>
-              <input type="text" class="form-control form-control-lg" id="start_date" name = "start" placeholder = "MM/DD/YYYY">
+              <input type="text" class="form-control form-control-lg" id="start_date" name = "start_date" placeholder = "MM/DD/YYYY">
             </div>
             <div class="form-group col-md-6">
               <b>Due Date:</b>
-              <input type="text" class="form-control form-control-lg" id="due_date" name = "due" placeholder = "MM/DD/YYYY">
+              <input type="text" class="form-control form-control-lg" id="due_date" name = "due_date" placeholder = "MM/DD/YYYY">
             </div>
           </div>
           <div class="form-group">
