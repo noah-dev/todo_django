@@ -90,20 +90,18 @@ def add_item(request):
     '''Add a new item from a form via POST method'''
     form = ItemForm(request.POST)
     if form.is_valid():
-        item = form.cleaned_data
-        user = request.user
-        complete = False
-        priority = -1
-
-        new_item = Item(user=user,
-                        title_text=item['title_text'],
-                        desc_text=item['desc_text'],
-                        impact_text=item['impact_text'],
-                        start_date=item['start_date'],
-                        due_date=item['due_date'] + timedelta(days=0, microseconds=999999, seconds=59, minutes=59, hours=23),
-                        priority=priority,
-                        complete=complete)
-        new_item.save()
+        # item = form.cleaned_data
+        # user = request.user
+        # complete = False
+        # priority = -1
+        item = form.save(commit = False)
+        print(item)
+        item.user = request.user
+        item.complete = False
+        item.priority = -1
+        item.due_date += timedelta(days=0, microseconds=999999, seconds=59, minutes=59, hours=23)
+        print(item)
+        item.save()
     else:
         # If it didn't work, assume the provided data was invalid and
         # request user try again.
